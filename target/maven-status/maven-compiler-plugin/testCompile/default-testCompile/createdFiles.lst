@@ -1,2 +1,4 @@
+runners\AddcustomerRunner.class
+steps\addcustomerDefination.class
 runners\LoginRunner.class
 steps\LoginStepDefination.class

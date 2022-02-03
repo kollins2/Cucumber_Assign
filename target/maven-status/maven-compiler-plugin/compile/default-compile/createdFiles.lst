@@ -1,1 +1,4 @@
+pages\DataBasePage.class
+pages\addcustomerPage.class
+pages\LoginPage.class
 pages\TestBase.class

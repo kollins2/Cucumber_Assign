@@ -7,6 +7,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public  class addcustomerPage extends TestBase {
+	WebDriver driver;
+	@FindBy(how = How.XPATH, using = "//input[@name=\"username\"]") 
+	WebElement USERNAME_ELEMENT;
+	
+	@FindBy(how = How.XPATH, using = "//input[@id=\"password\"]")
+	WebElement PASSWORD_ELEMENT;
+	@FindBy(how = How.XPATH, using = "/html/body/div/div/div/form/div[3]/button")
+	WebElement SIGNIN_BUTTON_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Bank & Cash')]")
+	WebElement CLICK_ON_BANK_AND_CASH_ELEMENT;
+    @FindBy(how = How.XPATH, using = "//a[@href=\"https://techfios.com/billing/?ng=accounts/add/\"]")
+    WebElement CLICK_ON_ADD_NEW_ACCOUT_ELEMENT;
 	@FindBy(how = How.XPATH, using = "//input [@id=\"account\"]")
 	WebElement ACCOUNTTITLE_ELEMENT;
 	@FindBy(how = How.XPATH, using = "//input[@id=\"description\"]")
@@ -26,10 +38,31 @@ public  class addcustomerPage extends TestBase {
 
 	public addcustomerPage(WebDriver driver) {
 		//super(driver);
-       TestBase.driver=driver;
+       this.driver=driver;
        generateRandomNum(999);
 	}
+	
+	public void insertUserName(String username) {
+		USERNAME_ELEMENT.sendKeys(username);
+	}
 
+	public void insertPassword(String password) {
+		PASSWORD_ELEMENT.sendKeys(password);
+	}
+
+	public void clickOnSignInButton() {
+		SIGNIN_BUTTON_ELEMENT.click();
+	}
+
+	public String getPageTitle() {
+		  return driver.getTitle();
+		 }
+	public void clickOnBankandCash() {
+		CLICK_ON_BANK_AND_CASH_ELEMENT.click();
+	}
+	public void clickOnAddNewAccount() {
+		CLICK_ON_ADD_NEW_ACCOUT_ELEMENT.click();
+	}
 	public void insertaccountTitle(String accountTitle) {
 		ACCOUNTTITLE_ELEMENT.sendKeys(accountTitle + generateRandomNum(999));
 

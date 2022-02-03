@@ -19,8 +19,11 @@ package pages;
 		}
 
 		// Element Library
-		@FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
+	//	@FindBy(how = How.XPATH, using = "//*[@id=\"username\"]")
+	//	WebElement USERNAME_ELEMENT;
+		@FindBy(how = How.XPATH, using = "//*[@name=\"username\"]")
 		WebElement USERNAME_ELEMENT;
+		
 		@FindBy(how = How.XPATH, using = "//*[@id=\"password\"]")
 		WebElement PASSWORD_ELEMENT;
 		@FindBy(how = How.XPATH, using = "/html/body/div/div/div/form/div[3]/button")
@@ -31,8 +34,8 @@ package pages;
         WebElement CLICK_ON_ADD_NEW_ACCOUT_ELEMENT;
        
 		
-		public void insertUserName(String userName) {
-			USERNAME_ELEMENT.sendKeys(userName);
+		public void insertUserName(String Username ) {
+			USERNAME_ELEMENT.sendKeys(Username);
 		}
 
 		public void insertPassword(String password) {

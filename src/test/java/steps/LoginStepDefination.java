@@ -3,20 +3,24 @@ package steps;
 import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.DataBasePage;
 import pages.LoginPage;
 import pages.TestBase;
 
 public class LoginStepDefination extends TestBase {
 	LoginPage loginPage;
-  @Before
+	DataBasePage databasePage;
+	
+	@Before
 	public void beforeRun() {
 	  initDriver();
 	  loginPage = PageFactory.initElements(driver, LoginPage.class);	
+	  databasePage = new DataBasePage();
+	
 	}
 	
 	
@@ -24,7 +28,6 @@ public class LoginStepDefination extends TestBase {
 	public void user_is_on_the_TechFios_Login_page() throws Throwable {
 		 driver.get("https://techfios.com/billing/?ng=admin");
 	}
-
 	@When("^User enters username as \"([^\"]*)\"$")
 	public void user_enters_username_as(String username) throws Throwable {
 	//	loginPage = PageFactory.initElements(driver, LoginPage.class);
@@ -43,7 +46,25 @@ public class LoginStepDefination extends TestBase {
        loginPage.clickOnSignInButton();
        Thread.sleep(3000);
 	}
-
+	@When("^User enters \"([^\"]*)\" as from techfios database$")
+	public void user_enters_as_from_techfios_database(String data) throws Throwable {
+	   switch (data) {
+	   case "username":
+		   System.out.println("print username");
+		   loginPage.insertUserName(databasePage.getData("username"));
+		   Thread.sleep(3000);
+		   break;
+	   case "password":
+		   System.out.println("print password");
+		   loginPage.insertPassword(databasePage.getData("password"));
+		   Thread.sleep(3000);
+		   break;
+		   
+		   default:
+			   
+			   System.out.println("unable to enter data!");
+	   }
+	   }
 	@Then("^User should land on dashboard page$")
 	public void user_should_land_on_dashboard_page() throws Throwable {
   //  loginPage.getPageTitle();
@@ -55,9 +76,12 @@ public class LoginStepDefination extends TestBase {
      
      Thread.sleep(3000);
 	}
-  @After
-	public void tearDown() {  
-	  driver.close();
-	  driver.quit();
+	
+	
+	
+//	@After
+//	public void tearDown() {  
+//	  driver.close();
+//	  driver.quit();
   }
-}
+

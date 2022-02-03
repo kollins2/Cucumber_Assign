@@ -1,9 +1,8 @@
 @otherlogin@Regression
-Feature: other Techfios Login funtionality validation
-
+Feature: other Techfios Login funtionality validation 
 @otherscenario1 
 Scenario Outline: 1 user should be able to login with valid credentials 
-	Given User is on the TechFios Login page  
+	Given User is on the TechFios Login page	
 	When  User enters username as "demo@techfios.com" 
 	When  User enters password as "abc123" 
 	And   User clicks on signin button

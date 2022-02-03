@@ -1,55 +1,30 @@
 [
   {
-    "comments": [
-      {
-        "line": 1,
-        "value": "#"
-      }
-    ],
     "line": 2,
     "elements": [
       {
+        "start_timestamp": "2022-01-25T02:46:37.043Z",
         "before": [
           {
             "result": {
-              "duration": 2724089400,
+              "duration": 2071557500,
               "status": "passed"
             },
             "match": {
               "location": "LoginStepDefination.beforeRun()"
             }
-          },
-          {
-            "result": {
-              "duration": 1811070500,
-              "status": "passed"
-            },
-            "match": {
-              "location": "addcustomerDefination.beforeRun()"
-            }
           }
         ],
         "line": 18,
         "name": "User should be able to login with valid credentials",
-        "description": "and open a new account",
+        "description": "\tand open a new account ",
         "id": "techfios-bank-and-cash-new-account-functionality;user-should-be-able-to-login-with-valid-credentials;;2",
-        "after": [
-          {
-            "result": {
-              "duration": 722896300,
-              "status": "passed"
-            },
-            "match": {
-              "location": "LoginStepDefination.tearDown()"
-            }
-          }
-        ],
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 1355903600,
+              "duration": 3126230700,
               "status": "passed"
             },
             "line": 7,
@@ -61,8 +36,9 @@
           },
           {
             "result": {
-              "duration": 2231009300,
-              "status": "passed"
+              "error_message": "java.lang.NullPointerException\r\n\tat steps.addcustomerDefination.user_enters_the_username_as_and_password_as(addcustomerDefination.java:37)\r\n\tat ✽.User enters the username as \"demo@techfios.com\" and password as \"abc123\"(classpath:features/addCustomer.feature:8)\r\n",
+              "duration": 2657700,
+              "status": "failed"
             },
             "line": 8,
             "name": "User enters the username as \"demo@techfios.com\" and password as \"abc123\"",
@@ -79,16 +55,12 @@
               ],
               "location": "addcustomerDefination.user_enters_the_username_as_and_password_as(String,String)"
             },
-            "matchedColumns": [
-              0,
-              1
-            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 3618580000,
-              "status": "passed"
+              "duration": 486000,
+              "status": "skipped"
             },
             "line": 9,
             "name": "User clicks on login",
@@ -99,8 +71,8 @@
           },
           {
             "result": {
-              "duration": 2011980800,
-              "status": "passed"
+              "duration": 470300,
+              "status": "skipped"
             },
             "line": 10,
             "name": "User should land on Dashboard page",
@@ -111,8 +83,8 @@
           },
           {
             "result": {
-              "duration": 2080831200,
-              "status": "passed"
+              "duration": 668900,
+              "status": "skipped"
             },
             "line": 11,
             "name": "User clicks on bank and Cash",
@@ -123,8 +95,8 @@
           },
           {
             "result": {
-              "duration": 2822106700,
-              "status": "passed"
+              "duration": 636800,
+              "status": "skipped"
             },
             "line": 12,
             "name": "User clicks on new Account",
@@ -135,8 +107,8 @@
           },
           {
             "result": {
-              "duration": 507889800,
-              "status": "passed"
+              "duration": 578400,
+              "status": "skipped"
             },
             "line": 13,
             "name": "User fills up the information by entering \"JADDDY\" and \"NewAccont\" and \"20.00\" and \"1092344\" and \"PohK\" \"\u003cphone\u003e\" and \"https://www.google.com/\"",
@@ -173,20 +145,12 @@
               ],
               "location": "addcustomerDefination.user_fills_up_the_information_by_entering_and_and_and_and_and(String,String,String,String,String,String,String)"
             },
-            "matchedColumns": [
-              2,
-              3,
-              4,
-              5,
-              6,
-              9
-            ],
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 1646844600,
-              "status": "passed"
+              "duration": 280500,
+              "status": "skipped"
             },
             "line": 14,
             "name": "User will click on the submit button",
@@ -197,8 +161,8 @@
           },
           {
             "result": {
-              "duration": 4170872500,
-              "status": "passed"
+              "duration": 392600,
+              "status": "skipped"
             },
             "line": 15,
             "name": "User should be able to validate account created successfully",
@@ -210,8 +174,7 @@
         ],
         "tags": [
           {
-            "line": 4,
-            "name": "@ScenarioA"
+            "name": "@ScenarioC"
           }
         ]
       }
@@ -220,6 +183,7 @@
     "description": "",
     "id": "techfios-bank-and-cash-new-account-functionality",
     "keyword": "Feature",
-    "uri": "features/addCustomer.feature"
+    "uri": "classpath:features/addCustomer.feature",
+    "tags": []
   }
 ]

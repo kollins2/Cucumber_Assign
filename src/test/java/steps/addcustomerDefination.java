@@ -1,47 +1,49 @@
 package steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.de.Aber;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import pages.LoginPage;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.TestBase;
 import pages.addcustomerPage;
 
 public class addcustomerDefination extends TestBase {
 	addcustomerPage AddCustomerPage;
-    LoginPage loginPage;
+  //  LoginPage loginPage;
 	
-	@Before
+	
 	public void beforeRun() {
 		initDriver();
 
 		 AddCustomerPage = PageFactory.initElements(driver, addcustomerPage.class);
-		 loginPage = PageFactory.initElements(driver, LoginPage.class);
+		// loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}
-
+@Test
 	@Given("^user is on the techfios login page$")
 	public void user_is_on_the_techfios_login_page() throws Throwable {
 		driver.get("https://techfios.com/billing/?ng=admin");
+		Thread.sleep(2000);
 	}
 
 	@When("^User enters the username as \"([^\"]*)\" and password as \"([^\"]*)\"$")
 	public void user_enters_the_username_as_and_password_as(String username, String password) throws Throwable {
-     loginPage.insertUserName(username);
-     loginPage.insertPassword(password);
-	Thread.sleep(2000);
+  
+   AddCustomerPage.insertUserName(username);
+   AddCustomerPage.insertPassword(password);
+   Thread.sleep(2000);
 	}
 
-	@When("^User clicks on login$")
+	
+	
+	@And("^User clicks on login$")
 	public void user_clicks_on_login() throws Throwable {
-    loginPage.clickOnSignInButton();
+    AddCustomerPage.clickOnSignInButton();
     Thread.sleep(2000);
    
 	
@@ -49,12 +51,12 @@ public class addcustomerDefination extends TestBase {
     }
 	
 	
-	}
+	
 
 	@Then("^User should land on Dashboard page$")
 	public void user_should_land_on_Dashboard_page() throws Throwable {
       
-      String actualTitle =loginPage.getPageTitle();
+      String actualTitle =AddCustomerPage.getPageTitle();
       String expectedTitle = "Dashboard- iBilling";
        Assert.assertEquals("Page title are not matching",expectedTitle, actualTitle);
        Thread.sleep(2000);
@@ -62,13 +64,13 @@ public class addcustomerDefination extends TestBase {
 
 	@Then("^User clicks on bank and Cash$")
 	public void user_clicks_on_bank_and_Cash() throws Throwable {
-		 loginPage.clickOnBankandCash();
+		 AddCustomerPage.clickOnBankandCash();
 		Thread.sleep(2000);
 	}
 
 	@Then("^User clicks on new Account$")
 	public void user_clicks_on_new_Account() throws Throwable {
-		loginPage.clickOnAddNewAccount();
+		AddCustomerPage.clickOnAddNewAccount();
 		Thread.sleep(2000);
 	}
 
